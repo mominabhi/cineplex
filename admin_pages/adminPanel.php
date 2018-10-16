@@ -1,0 +1,3 @@
+<!--checking running-->
+<?php
+?>
