@@ -37,7 +37,7 @@ $fetches=$obj->coming_movie_read();
                             <img src="<?php echo $result['image'] ?>" class="img-responsive" height="100%" width="100%">
                         </div>
                         <div class="panel panel-footer">
-                            <a href="http://www.cineplexbd.com/cineplexbd/showtimedetails/206/1042">
+                            <a href="movie_details.php?movie_id=<?php echo $result['movie_id']?> ">
                                 <button type="button" class="btn btn-primary btn-block">ShowTime & Details</button>
                             </a>
                         </div>
@@ -50,7 +50,6 @@ $fetches=$obj->coming_movie_read();
 
         </div>
     </div>
-
     <!--    Coming Soon -->
     <div class="thirdRow">
         <div class="container-fluid">
