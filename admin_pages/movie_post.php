@@ -27,35 +27,6 @@ if(isset($_POST["btn_submit"]))
                     <input type="text" class="form-control" name="movie_name" placeholder="Enter the Movie name">
                 </div>
                 <div class="form-group">
-                    <lebel for="ShowDate">Showing Date1:</lebel>
-                    <input type="date" class="form-control" name="date1">
-                </div>
-                <div class="form-group">
-                    <lebel for="ShowDate">Showing Date2:</lebel>
-                    <input type="date" class="form-control" name="date2">
-                </div>
-                <div class="form-group">
-                    <lebel for="ShowDate">Showing Date3:</lebel>
-                    <input type="date" class="form-control" name="date3">
-                </div>
-                <div class="form-group">
-                    <lebel for="ShowDate">Showing Date4:</lebel>
-                    <input type="date" class="form-control" name="date4">
-                </div>
-                <div class="form-group">
-                    <lebel for="showTime1">Show Time 1:</lebel>
-                    <input type="time" class="form-control" name="show_time_1">
-                </div>
-                <div class="form-group">
-                    <lebel for="showTime2">Show Time 2:</lebel>
-                    <input type="time" class="form-control" name="show_time_2">
-                </div>
-                <div class="form-group">
-                    <lebel for="showTime3">Show Time 3:</lebel>
-                    <input type="time" class="form-control" name="show_time_3">
-                </div>
-
-                <div class="form-group">
                     <lebel for="moviePoster">Movie Poster:</lebel>
                     <input type="file" class="form-control" name="poster">
                 </div>
