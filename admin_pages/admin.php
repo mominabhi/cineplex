@@ -103,21 +103,6 @@ class admin
             return $msg = "<div class='alert alert-success'>Movie Info uploaded successfully</div>";
         }
     }
-    public function showTime()
-    {
-
-//      $query="SELECT date,GROUP_CONCAT(movie_name),GROUP_CONCAT(show1),GROUP_CONCAT(show2),GROUP_CONCAT(show3) FROM showtime GROUP BY date ";
-
-        $query = "SELECT date,GROUP_CONCAT(CONCAT_WS('-> ',movie_name,show1,show2,show3)
-        SEPARATOR '\n') as lulu FROM showtime GROUP BY date ";
-//        $query="select * from showtime where date in (
-//    select date from showtime
-//    group by date having count(*) > 1)";
-        $result = mysqli_query($this->db_connect, $query);
-        return $result;
-
-
-    }
 
     public function ShowTime_movie($movie_name)
     {
@@ -125,10 +110,16 @@ class admin
         $result = mysqli_query($this->db_connect, $query);
         return $result;
     }
-
-    public function today_show_time()
+    public function show_Date()
     {
-        $date = date("Y-m-d");
+        $query="SELECT DISTINCT date FROM showtime ORDER BY date ASC";
+        $result=mysqli_query($this->db_connect,$query);
+        return $result;
+
+    }
+    public function show_Time($date)
+    {
+
         $query = "SELECT * FRom showtime WHERE date='$date' ";
         $result = mysqli_query($this->db_connect, $query);
         return $result;
