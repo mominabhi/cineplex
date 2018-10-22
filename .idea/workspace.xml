@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b996daf7-9070-464e-b3f1-7e1140541600" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/admin_pages/set_date_time.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/superClass.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin_pages/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_pages/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/home_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/The-Nun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/The-Nun.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/debi.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/image/debi.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/venom1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_pages/set_showTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_pages/set_showTime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/movie_details.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/showTime.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +31,16 @@
         <option value="$PROJECT_DIR$/slider.php" />
         <option value="$PROJECT_DIR$/admin_pages/coming_movie.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/movie_details.php" />
         <option value="$PROJECT_DIR$/admin_pages/movie_post.php" />
-        <option value="$PROJECT_DIR$/admin_pages/set_showTime.php" />
-        <option value="$PROJECT_DIR$/admin_pages/admin.php" />
-        <option value="$PROJECT_DIR$/showTime.php" />
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/home_header.php" />
+        <option value="$PROJECT_DIR$/admin_pages/set_date_time.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/admin_pages/admin.php" />
+        <option value="$PROJECT_DIR$/admin_pages/set_showTime.php" />
+        <option value="$PROJECT_DIR$/movie_details.php" />
+        <option value="$PROJECT_DIR$/classes/superClass.php" />
+        <option value="$PROJECT_DIR$/showTime.php" />
       </list>
     </option>
   </component>
@@ -73,7 +75,7 @@
             <path>
               <item name="cineplex" type="b2602c69:ProjectViewProjectNode" />
               <item name="cineplex" type="462c0819:PsiDirectoryNode" />
-              <item name="admin_pages" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -131,16 +133,18 @@
       <workItem from="1539918969888" duration="10575000" />
       <workItem from="1539962340966" duration="482000" />
       <workItem from="1540007774420" duration="4608000" />
+      <workItem from="1540085851321" duration="4238000" />
+      <workItem from="1540176253636" duration="37424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124018000" />
+    <option name="totallyTimeSpent" value="165680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19591528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20196672" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -434,27 +438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pages/set_showTime.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="112" column="33" lean-forward="true" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_pages/movie_post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home_header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -469,21 +452,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/showTime.php">
+    <entry file="file://$PROJECT_DIR$/admin_pages/movie_post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="-550">
+          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pages/set_date_time.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_pages/set_showTime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="117" column="38" lean-forward="true" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_pages/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="258">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showTime.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/superClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -1,10 +1,12 @@
 <?php
 include "admin.php";
-$obj=new admin();
-
-if(isset($_POST["btn_submit"]))
+$obj = new admin();
+$movies=$obj->movie_read()->fetch_all();
+$dates=$obj->date_read();
+$shows=$obj->time_read();
+if(isset($_POST['btn_submit']))
 {
-    $msg=$obj->set_showTime($_POST);
+    $msg=$obj->set_show_time($_POST);
     echo $msg;
 }
 ?>
@@ -16,37 +18,52 @@ if(isset($_POST["btn_submit"]))
     <script src="../jQuery/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-<div class="container-fluid col-sm-8 col-sm-offset-2">
+<div class="container-fluid col-sm-6 col-sm-offset-3">
     <div class="panel panel-primary" style="margin-top: 30px">
-        <div class="panel panel-heading"><h2 style="text-align: center">SET SHOWTIME BY MOVIE</h2></div>
+        <div class="panel panel-heading"><h2 style="text-align: center">SET SHOWTIME</h2></div>
         <div class="panel panel-body">
             <form method="post" action="">
                 <div class="form-group">
-                    <lebel for="email">MOVIE NAME:</lebel>
-                    <input type="text" class="form-control" name="movie_name" placeholder="Enter the Movie name">
+                    <lebel>SET MOVIE:</lebel>
+
+                    <select class="form-control" name="movie">
+                        <?php
+                        foreach ($movies as $key => $value) {
+                            ?>
+                            <option value="<?php echo $value[0] ?>"><?php echo $value[1] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <lebel for="moviePoster">SET DATE:</lebel>
-                    <input type="date" class="form-control" name="date">
+                    <lebel>SET DATE:</lebel>
+                    <select class="form-control" name="date">
+                        <?php
+                        foreach ($dates as $key => $value) {
+                            ?>
+                            <option value="<?php echo $value[0] ?>"><?php echo $value[1] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <lebel for="trailer">Movie SHOW NO:1:</lebel>
-                    <input type="time" class="form-control" name="show1">
-                </div>
-                <div class="form-group">
-                    <lebel for="trailer">Movie SHOW NO:2:</lebel>
-                    <input type="time" class="form-control" name="show2">
-                </div>
-                <div class="form-group">
-                    <lebel for="trailer">Movie SHOW NO:3:</lebel>
-                    <input type="time" class="form-control" name="show3">
+                    <lebel>SET SHOWTIME:</lebel>
+                        <?php
+                        foreach ($shows as $key => $value) {
+                            ?>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="show[]" value="<?php echo $value[0] ?>"><?php echo date('h:i A', strtotime($value[1])) ?>
+                            </label>
+                            <?php
+                        }
+                        ?>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block" name="btn_submit">SUBMIT</button>
             </form>
         </div>
-
     </div>
-
 </div>
 </body>
 </html>

@@ -1,7 +1,9 @@
 <?php
 include "header.php";
 include "admin_pages/admin.php";
+include "classes/superClass.php";
 $obj = new admin();
+$object=new superClass();
 $movie_id = 0;
 $movie_id = $_GET['movie_id'];
 $result = $obj->movie_details($movie_id);
@@ -96,19 +98,25 @@ $data = mysqli_fetch_assoc($result);
                     <tbody>
                     <?php
 
-                    $showTimes = $obj->ShowTime_movie($data['movie_name']);
-                    foreach ($showTimes as $showTime) {
+                    $date=$object->get_date_by_movie($movie_id);
+                    foreach ($date as $key=>$value) {
                         ?>
                         <tr class="info">
-                            <td><?php echo $showTime['date'] ?></td>
+                            <td><?php echo $value[0] ?></td>
                             <td>
                                 <ul class="col-sm-12">
-                                    <li class="btn btn-warning"><?php $show = $showTime['show1'];
-                                        echo date('h:i A', strtotime($show)); ?></li>
-                                    <li class="btn btn-info"><?php $show = $showTime['show2'];
-                                        echo date('h:i A', strtotime($show)); ?></li>
-                                    <li class="btn btn-danger"><?php $show = $showTime['show3'];
-                                        echo date('h:i A', strtotime($show)); ?></li>
+                                    <?php
+                                    $showTime=$object->get_showTime_by_movie($value[2]);
+                                    foreach ($showTime as $vey=>$item)
+                                    {
+                                        ?>
+                                        <li class="btn btn-primary"><?php $show = $item[0];
+                                            echo date('h:i A', strtotime($show)); ?></li>
+                                    <?php
+                                    }
+
+                                    ?>
+
                                 </ul>
                             </td>
                         </tr>

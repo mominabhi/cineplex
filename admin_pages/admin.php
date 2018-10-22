@@ -87,44 +87,51 @@ class admin
         return $result;
     }
 
-    public function set_showTime($data)
+    public function dates($data)
     {
-        $movie_name = $data['movie_name'];
-        $date = $data['date'];
-        $show1 = $data['show1'];
-        $show2 = $data['show2'];
-        $show3 = $data['show3'];
+        $query = "INSERT INTO date_tbl(date) VALUES ('$data[date]')";
+        $result = mysqli_query($this->db_connect, $query);
+        if ($result) {
+            return $msg = "<div class='alert alert-success'>Date uploaded successfully</div>";
+        }
 
-        if ($movie_name == "" OR $date == "" OR $show1 == "" OR $show2 == "" OR $show2 == "") {
-            return $msg = "<div class='alert alert-danger'>Please inter the full form</div>";
-        } else {
-            $query = "INSERT INTO showtime(date,movie_name,show1,show2,show3) VALUES ('$date','$movie_name','$show1','$show2','$show3')";
-            mysqli_query($this->db_connect, $query);
-            return $msg = "<div class='alert alert-success'>Movie Info uploaded successfully</div>";
+    }
+
+    public function showtimes($data)
+    {
+        $query = "INSERT INTO time_tbl(time) VALUES ('$data[showtime]')";
+        $result = mysqli_query($this->db_connect, $query);
+        if ($result) {
+            return $msg = "<div class='alert alert-success'>Time uploaded successfully</div>";
         }
     }
 
-    public function ShowTime_movie($movie_name)
+    public function date_read()
     {
-        $query = "SELECT * FRom showtime WHERE movie_name='$movie_name' order by date ASC";
-        $result = mysqli_query($this->db_connect, $query);
+        $query = "SELECT * FROM date_tbl order by date ASC ";
+        $result = mysqli_query($this->db_connect, $query)->fetch_all();
         return $result;
     }
-    public function show_Date()
-    {
-        $query="SELECT DISTINCT date FROM showtime ORDER BY date ASC";
-        $result=mysqli_query($this->db_connect,$query);
-        return $result;
 
+    public function time_read()
+    {
+        $query = "SELECT * FROM time_tbl order by time ASC";
+        $result = mysqli_query($this->db_connect, $query)->fetch_all();
+        return $result;
     }
-    public function show_Time($date)
+
+    public function set_show_time($data)
     {
-
-        $query = "SELECT * FRom showtime WHERE date='$date' ";
-        $result = mysqli_query($this->db_connect, $query);
-        return $result;
-
-
+        $movie_id = $data['movie'];
+        $date_id = $data['date'];
+        $show_id = $data['show'];
+        $query = "INSERT INTO date_movie(movie_id,date_id) VALUES('$movie_id',$date_id)";
+        mysqli_query($this->db_connect, $query);
+        $date_movie_id = mysqli_insert_id($this->db_connect);
+        foreach ($show_id as $key => $chk) {
+            $query = "insert into movie_date_time(date_movie_id,time_id) values ('$date_movie_id','$chk')";
+            mysqli_query($this->db_connect, $query);
+        }
     }
 
 }
