@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin_id']))
+{
+    header("Location:admin_login.php");
+}
 include "admin.php";
 $obj=new admin();
 

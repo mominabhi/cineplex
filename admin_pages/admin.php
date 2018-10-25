@@ -57,6 +57,12 @@ class admin
         $date = $data['release_date'];
         $trailer = $data['trailer'];
 
+        $synopsis = $data['synopsis'];
+        $rating = $data['rating'];
+        $director = $data['director'];
+        $cast = $data['cast'];
+        $genre = $data['genre'];
+
         $poster_image = $_FILES['movie_image']['name'];
         $image_path = "image/" . $poster_image;
         $tmp_poster_image = $_FILES['movie_image']['tmp_name'];
@@ -66,7 +72,7 @@ class admin
         if ($movie_name == "" OR $date == "" OR $trailer == "" OR $poster_image == "") {
             return $msg = "<div class='alert alert-danger'>Please inter the full form</div>";
         } else {
-            $query = "INSERT INTO coming_movie(movie_name,release_date,movie_image,trailer) VALUES ('$movie_name','$date','$image_path','$trailer')";
+            $query = "INSERT INTO coming_movie(movie_name,release_date,movie_image,trailer,synopsis,rating,director,cast,genre) VALUES ('$movie_name','$date','$image_path','$trailer','$synopsis','$rating','$director','$cast','$genre')";
             mysqli_query($this->db_connect, $query);
             return $msg = "<div class='alert alert-success'>Movie Info uploaded successfully</div>";
         }
@@ -83,6 +89,13 @@ class admin
     public function movie_details($id)
     {
         $query = "SELECT * FROM movie_list WHERE movie_id='$id' ";
+        $result = mysqli_query($this->db_connect, $query);
+        return $result;
+    }
+
+    public function coming_movie($id)
+    {
+        $query = "SELECT * FROM coming_movie WHERE cm_id='$id'";
         $result = mysqli_query($this->db_connect, $query);
         return $result;
     }
@@ -134,4 +147,27 @@ class admin
         }
     }
 
+    public function admin_login($data)
+    {
+        $admin_email = $data['admin_email'];
+        $admin_pass = $data['admin_pass'];
+        $query = "SELECT * FROM admin_tbl WHERE email='$admin_email' AND password='$admin_pass'";
+        $result = mysqli_query($this->db_connect, $query);
+        if ($result) {
+            $count = mysqli_num_rows($result);
+            if ($count == 1) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row) {
+                    session_start();
+                    $_SESSION['admin_id'] = $row['id'];
+                    $_SESSION['admin_email'] = $row['email'];
+                    $_SESSION['admin_name'] = $row['name'];
+                    header("Location:adminPanel.php");
+                }
+
+            } else {
+                echo "<div class='alert alert-danger'>Invalid Email and Password</div>";
+            }
+        }
+    }
 }

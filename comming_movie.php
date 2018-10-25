@@ -1,14 +1,11 @@
 <?php
 include "header.php";
 include "admin_pages/admin.php";
-include "classes/superClass.php";
 $obj = new admin();
-$object=new superClass();
 $movie_id = 0;
-$movie_id = $_GET['movie_id'];
-$result = $obj->movie_details($movie_id);
+$movie_id = $_GET['cm_id'];
+$result = $obj->coming_movie($movie_id);
 $data = mysqli_fetch_assoc($result);
-
 
 ?>
 <!DOCTYPE HTML>
@@ -31,7 +28,7 @@ $data = mysqli_fetch_assoc($result);
         <div class="panel panel-body">
             <div class="container-fluid">
                 <div class="col-sm-3">
-                    <img src="<?php echo $data['image'] ?>" class="img-responsive" height="70%" width="70%">
+                    <img src="<?php echo $data['movie_image'] ?>" class="img-responsive" height="70%" width="70%">
 
                 </div>
                 <div class="col-sm-3">
@@ -55,11 +52,11 @@ $data = mysqli_fetch_assoc($result);
                             ?>
 
                         </div>
-                        <div class="col-sm-5" style="margin-top: 20px">
-                            <a href="user_registration.php?movie_id=<?php echo $data['movie_id']?>" style="text-decoration: none">
-                                <button type="button" class="btn btn-warning btn-block ">Buy Tickets</button>
-                            </a>
-                        </div>
+<!--                        <div class="col-sm-5" style="margin-top: 20px">-->
+<!--                            <a href="#" style="text-decoration: none">-->
+<!--                                <button type="button" class="btn btn-warning btn-block ">Buy Tickets</button>-->
+<!--                            </a>-->
+<!--                        </div>-->
                     </div>
                     <div class="container-fluid" style="margin: 20px 0 0 20px">
                         <table class="table table-condensed table-bordered">
@@ -85,47 +82,6 @@ $data = mysqli_fetch_assoc($result);
                         </table>
                     </div>
                 </div>
-            </div>
-
-            <div class="container-fluid col-sm-8 col-sm-offset-2">
-                <table class="table table-bordered" style="margin-top: 30px">
-                    <thead>
-                    <tr>
-                        <th class="text-center btn-warning">Date</th>
-                        <th class="text-center btn-success">Show Time</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-
-                    $date=$object->get_date_by_movie($movie_id);
-                    foreach ($date as $key=>$value) {
-                        ?>
-                        <tr class="info">
-                            <td><?php echo $value[0] ?></td>
-                            <td>
-                                <ul class="col-sm-12">
-                                    <?php
-                                    $showTime=$object->get_showTime_by_movie($value[2]);
-                                    foreach ($showTime as $vey=>$item)
-                                    {
-                                        ?>
-                                        <li class="btn btn-primary"><?php $show = $item[0];
-                                            echo date('h:i A', strtotime($show)); ?></li>
-                                    <?php
-                                    }
-
-                                    ?>
-
-                                </ul>
-                            </td>
-                        </tr>
-
-                        <?php
-                    }
-                    ?>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

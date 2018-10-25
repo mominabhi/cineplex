@@ -68,7 +68,7 @@ $fetches=$obj->coming_movie_read();
                                     <img src="<?php echo $fetch['movie_image'] ?>" class="img-responsive" height="100%" width="100%">
                                 </div>
                                 <div class="panel panel-footer">
-                                    <a href="http://www.cineplexbd.com/cineplexbd/showtimedetails/206/1042">
+                                    <a href="comming_movie.php?cm_id=<?php echo $fetch['cm_id']?> ">
                                         <button type="button" class="btn btn-primary btn-block">Movie Details</button>
                                     </a>
                                 </div>
@@ -88,7 +88,7 @@ $fetches=$obj->coming_movie_read();
                     <div class="panel panel-body">STAR Cineplex is open seven days a week including Tuesdays.</div>
                 </div>
                 <h4 style="color: #a6e1ec">Now Showing Trailer</h4>
-                <iframe width="100%" height="280px" src="https://www.youtube.com/embed/hn3wJ1_1Zsg">
+                <iframe width="100%" height="280px" src="https://www.youtube.com/embed/NooW_RbfdWI">
                 </iframe>
             </div>
         </div>

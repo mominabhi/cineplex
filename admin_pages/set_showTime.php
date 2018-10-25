@@ -1,5 +1,10 @@
 <?php
 include "admin.php";
+session_start();
+if(!isset($_SESSION['admin_id']))
+{
+    header("Location:admin_login.php");
+}
 $obj = new admin();
 $movies=$obj->movie_read()->fetch_all();
 $dates=$obj->date_read();
