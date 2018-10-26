@@ -10,7 +10,7 @@
 
     <style>
         body {
-            /*background-image: url("image/background1.jpg")*/
+            background-image: url("image/background1.jpg")
         }
     </style>
 </head>
@@ -24,7 +24,7 @@
             <li class="active"  style="padding:5px"><a href="../index.php"><i class="fa fa-home" style="font-size:25px"></i></a></li>
             <li style="padding: 10px"><a href="showTime.php">SHOW TIME</a></li>
             <li style="padding: 10px"><a href="#">TICKET PRICE</a></li>
-            <li style="padding: 10px"><a href="buy_ticket.php">BUY TICKETS</a></li>
+            <li style="padding: 10px"><a href="buy_tickets_all_movie.php">BUY TICKETS</a></li>
             <li style="padding: 10px"><a href="#">MEMBERS</a></li>
             <li style="padding: 10px"><a href="#">ABOUT CINEPLEX</a></li>
             <li style="padding: 10px"><a href="#">CONTACT</a></li>

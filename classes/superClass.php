@@ -137,10 +137,22 @@ class superClass
         }
         $amount = "Total Amount:" . $cal;
         foreach ($seats as $key => $seat) {
-            $query = "INSERT INTO final_selection(movie_date_time_id,seats_id) VALUES ('$movie_date_time_id','$seat')";
+            $query = "INSERT INTO final_selection(movie_date_time_id,seats_id,user_id,movie_name,movie_date,movie_time,current_date_time) VALUES ('$movie_date_time_id','$seat','$data[user_id]','$data[movie_name]','$data[movie_date]','$data[movie_time]','$data[current_time]')";
             mysqli_query($this->db_connect, $query);
+            $insert_id=mysqli_insert_id($this->db_connect);
+            $query2="INSERT INTO tickets(final_selection_id) VALUES ('$insert_id')";
+            mysqli_query($this->db_connect,$query2);
+
         }
+        header("Location:tickets.php");
         return $amount;
+
+    }
+    public function last_submission()
+    {
+        $query = "SELECT * from tickets";
+        $result = mysqli_query($this->db_connect, $query);
+        return $result;
 
     }
 
@@ -151,5 +163,16 @@ class superClass
         $result = mysqli_num_rows($result1);
         return $result;
     }
-
+    public function truncate_table()
+    {
+        $query="TRUNCATE TABLE tickets";
+        mysqli_query($this->db_connect,$query);
+        header("LOCATION:buy_ticket.php");
+    }
+    public function get_seat_Number($seat_id)
+    {
+        $query="SELECT seats.seat FROM tickets JOIN final_selection ON tickets.final_selection_id=final_selection.id JOIN seats ON final_selection.seats_id=seats.id WHERE tickets.final_selection_id='$seat_id'";
+        $result= mysqli_query($this->db_connect, $query)->fetch_all();
+        return $result;
+    }
 }

@@ -31,6 +31,7 @@ $movie_info = mysqli_fetch_assoc($movie);
         </div>
         <div class="panel panel-body">
             <?php
+
             echo "User Name:" . $_SESSION['name'] . "<br>";
             echo "User Email:" . $_SESSION['user_email'] . "<br>";
             echo "User Phone No:" . $_SESSION['number'] . "<br>";

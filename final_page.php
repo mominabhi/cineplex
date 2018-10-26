@@ -24,6 +24,9 @@ foreach ($all_info as $key=>$info)
     $info[0];
     $info[1];
     $info[2];
+    $_SESSION['M_Name']=$info[2];
+    $_SESSION['M_date']=$info[1];
+    $_SESSION['M_time']=date('h:i A', strtotime($info[0]));
 }
 
 ?>
@@ -58,6 +61,9 @@ foreach ($all_info as $key=>$info)
         </div>
         <div class="panel panel-body">
             <?php
+            $current_date = date("Y-m-d H:i:s");
+            echo "current:" .$current_date . "<br>";
+            echo "User ID:" .$_SESSION['user_id'] . "<br>";
             echo "User Name:" . $_SESSION['name'] . "<br>";
             echo "User Email:" . $_SESSION['user_email'] . "<br>";
             echo "User Phone No:" . $_SESSION['number'] . "<br>";
@@ -76,6 +82,11 @@ foreach ($all_info as $key=>$info)
             <br>
             <form method="post" action="">
                 <input type="hidden" name="movie_date_time_id" value="<?php echo $get_id; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+                <input type="hidden" name="movie_name" value="<?php echo $info[2]; ?>">
+                <input type="hidden" name="movie_date" value="<?php echo $info[1]; ?>">
+                <input type="hidden" name="movie_time" value="<?php echo $info[0]; ?>">
+                <input type="hidden" name="current_time" value="<?php echo $current_date; ?>">
                 <?php
                 foreach ($result as $row) {
 
