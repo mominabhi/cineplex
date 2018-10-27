@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['admin_id']))
-{
-    header("Location:admin_login.php");
-}
+
 include "admin.php";
 $obj=new admin();
 
@@ -26,8 +22,11 @@ if(isset($_POST['submit_time']))
 </head>
 <body>
 <div class="container">
-    <div class="col-sm-4 col-sm-offset-2">
-        <div class="panel panel-primary " style="margin-top: 30px">
+    <div class="col-sm-2">
+        <?php include "adminPanel.php";?>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-default " style="margin-top: 30px">
             <div class="panel panel-heading"><h2 style="text-align: center">Set Scheduling Date</h2></div>
             <div class="panel panel-body">
                 <form method="post" action="">
@@ -35,13 +34,13 @@ if(isset($_POST['submit_time']))
                         <lebel for="moviePoster">SET DATE:</lebel>
                         <input type="date" class="form-control" name="date">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" name="submit_date">SUBMIT</button>
+                    <button type="submit" class="btn btn-success btn-block" name="submit_date">SUBMIT</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="col-sm-4">
-        <div class="panel panel-primary" style="margin-top: 30px">
+        <div class="panel panel-default" style="margin-top: 30px">
             <div class="panel panel-heading"><h2 style="text-align: center">Set Daily Showtime</h2></div>
             <div class="panel panel-body">
                 <form method="post" action="">
@@ -49,7 +48,7 @@ if(isset($_POST['submit_time']))
                         <lebel for="moviePoster">SET SHOWTIME:</lebel>
                         <input type="time" class="form-control" name="showtime">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" name="submit_time">SUBMIT</button>
+                    <button type="submit" class="btn btn-success btn-block" name="submit_time">SUBMIT</button>
                 </form>
             </div>
         </div>

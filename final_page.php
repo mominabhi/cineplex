@@ -61,17 +61,14 @@ foreach ($all_info as $key=>$info)
         </div>
         <div class="panel panel-body">
             <?php
-            $current_date = date("Y-m-d H:i:s");
-            echo "current:" .$current_date . "<br>";
-            echo "User ID:" .$_SESSION['user_id'] . "<br>";
+
+            $_SESSION['user_id'];
             echo "User Name:" . $_SESSION['name'] . "<br>";
             echo "User Email:" . $_SESSION['user_email'] . "<br>";
             echo "User Phone No:" . $_SESSION['number'] . "<br>";
-            echo "<h3 style='text-align: center'>"."Ticket Price:" . $amount."</h3>";
-            echo "<h3 style='text-align: center'>"."Ticket Quantity:" . $quantity."</h3>";
-            echo "<h3 style='text-align: center'>".$info[2] ."</h3>";
-            echo "<h3 style='text-align: center'>".$info[1] ."</h3>";
-            echo "<h3 style='text-align: center'>".date('h:i A', strtotime($info[0])) ."</h3>";
+            echo "<h4 style='text-align: center'>"."Movie Name: ".$info[2] ."</h4>";
+            echo "<h4 style='text-align: center'>"."Date: ".$info[1] ."</h4>";
+            echo "<h4 style='text-align: center'>"."Showtime: ".date('h:i A', strtotime($info[0])) ."</h4>";
 
             ?>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2018 at 12:31 PM
+-- Generation Time: Oct 27, 2018 at 11:40 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -95,7 +95,8 @@ INSERT INTO `date_movie` (`id`, `movie_id`, `date_id`) VALUES
 (32, 17, 5),
 (33, 15, 4),
 (34, 13, 2),
-(35, 15, 5);
+(35, 15, 5),
+(36, 20, 5);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,13 @@ INSERT INTO `final_selection` (`id`, `movie_date_time_id`, `seats_id`, `user_id`
 (72, 32, 27, 1, 'Baby Driver', '2018-10-11', '17:45:00', '2018-10-26 06:05:44'),
 (73, 30, 15, 1, 'Baby Driver', '2018-10-11', '13:45:00', '2018-10-26 06:06:00'),
 (74, 29, 7, 1, 'A Star Is Born', '2018-10-11', '06:07:00', '2018-10-26 06:26:16'),
-(75, 37, 15, 1, 'Venom', '2018-10-26', '17:45:00', '2018-10-26 06:29:08');
+(75, 37, 15, 1, 'Venom', '2018-10-26', '17:45:00', '2018-10-26 06:29:08'),
+(76, 36, 8, 1, 'Venom', '2018-10-26', '14:05:00', '2018-10-26 14:45:41'),
+(77, 32, 28, 1, 'Baby Driver', '2018-10-11', '17:45:00', '0000-00-00 00:00:00'),
+(78, 32, 29, 1, 'Baby Driver', '2018-10-11', '17:45:00', '0000-00-00 00:00:00'),
+(79, 32, 11, 7, 'Baby Driver', '2018-10-11', '17:45:00', '0000-00-00 00:00:00'),
+(80, 33, 24, 7, 'Baby Driver', '2018-10-18', '13:45:00', '0000-00-00 00:00:00'),
+(81, 27, 26, 8, 'The Nun', '2018-10-12', '06:07:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -201,7 +208,9 @@ INSERT INTO `movie_date_time` (`id`, `date_movie_id`, `time_id`) VALUES
 (41, 35, 4),
 (42, 35, 1),
 (43, 35, 2),
-(44, 35, 3);
+(44, 35, 3),
+(45, 36, 4),
+(46, 36, 3);
 
 -- --------------------------------------------------------
 
@@ -364,7 +373,10 @@ INSERT INTO `user_tbl` (`id`, `usr_email`, `name`, `password`, `con_pass`, `numb
 (1, 'momin@gmail.com', 'MominAbhi', '1a1dc91c907325c69271ddf0c944bc72', 'pass', '2693875865'),
 (3, 'sabujar@gmail.com', 'sabujar', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '98987865'),
 (4, 'shalehin@gmail.com', 'shalehin', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '2693875865'),
-(5, 'sakib@gmail.com', 'NazmuzSakib', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '84398743');
+(5, 'sakib@gmail.com', 'NazmuzSakib', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '84398743'),
+(6, 'billu@gmail.com', 'zeroBillu', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '2693875865'),
+(7, 'saifulla@gmail.com', 'GMB_Saifulla', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '2693875865'),
+(8, 'abc@gmail.com', 'abc', '1a1dc91c907325c69271ddf0c944bc72', '1a1dc91c907325c69271ddf0c944bc72', '2693875865');
 
 --
 -- Indexes for dumped tables
@@ -456,7 +468,7 @@ ALTER TABLE `coming_movie`
 -- AUTO_INCREMENT for table `date_movie`
 --
 ALTER TABLE `date_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `date_tbl`
@@ -468,19 +480,19 @@ ALTER TABLE `date_tbl`
 -- AUTO_INCREMENT for table `final_selection`
 --
 ALTER TABLE `final_selection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `movie_date_time`
 --
 ALTER TABLE `movie_date_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `movie_list`
 --
 ALTER TABLE `movie_list`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `seats`
@@ -504,7 +516,7 @@ ALTER TABLE `time_tbl`
 -- AUTO_INCREMENT for table `user_tbl`
 --
 ALTER TABLE `user_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

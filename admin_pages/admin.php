@@ -40,7 +40,7 @@ class admin
         } else {
             $query = "INSERT INTO movie_list(movie_name,image,trailer,synopsis,rating,director,release_date,cast,genre) VALUES ('$movie_name','$image_path','$trailer','$synopsis','$rating','$director','$release_date','$cast','$genre')";
             mysqli_query($this->db_connect, $query);
-            return $msg = "<div class='alert alert-success'>Movie Info uploaded successfully</div>";
+            header("Location:manage_movie.php");
         }
     }
 
@@ -49,6 +49,36 @@ class admin
         $query = "SELECT * FROM movie_list";
         $result = mysqli_query($this->db_connect, $query);
         return $result;
+    }
+
+    public function movie_edit($data)
+    {
+        $movie_id=$data['movie_id'];
+        $movie_name = $data['movie_name'];
+        $trailer = $data['trailer'];
+//       start image upload
+        $poster_image = $_FILES['poster']['name'];
+        $image_path = "image/" . $poster_image;
+        $tmp_poster_image = $_FILES['poster']['tmp_name'];
+        $final_destination = "../image/$poster_image";
+        move_uploaded_file($tmp_poster_image, $final_destination);
+//       end image upload
+        $synopsis = $data['synopsis'];
+        $rating = $data['rating'];
+        $director = $data['director'];
+        $release_date = $data['release_date'];
+        $cast = $data['cast'];
+        $genre = $data['genre'];
+
+        $query="UPDATE movie_list SET movie_name='$movie_name',image='$image_path',trailer='$trailer',synopsis='$synopsis',rating='$rating',director='$director',release_date='$release_date',cast='$cast',genre='$genre' WHERE movie_id='$movie_id'";
+        mysqli_query($this->db_connect, $query);
+        header("Location:manage_movie.php");
+    }
+    public function delete($tbl_name,$id)
+    {
+        $query="DELETE FROM $tbl_name WHERE movie_id='$id'";
+        mysqli_query($this->db_connect, $query);
+        header("Location:manage_movie.php");
     }
 
     public function coming_movie_post($data)
@@ -169,5 +199,12 @@ class admin
                 echo "<div class='alert alert-danger'>Invalid Email and Password</div>";
             }
         }
+    }
+    public function admin_profile($admin_id)
+    {
+        $query="SELECT * from admin_tbl WHERE id='$admin_id'";
+        $result=mysqli_query($this->db_connect,$query);
+        return $result;
+
     }
 }

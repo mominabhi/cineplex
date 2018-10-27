@@ -73,6 +73,13 @@ class superClass
                 $query = "INSERT INTO user_tbl(usr_email,name,password,con_pass,number) VALUES('$email','$name','$password','$con_pass','$number')";
                 $result = mysqli_query($this->db_connect, $query);
                 if (isset($result)) {
+                    $last_id=mysqli_insert_id($this->db_connect);
+                    session_start();
+                    $_SESSION['user_id']=$last_id;
+                    $_SESSION['user_email'] = $email;
+                    $_SESSION['name'] = $name;
+                    $_SESSION['number'] = $number;
+                    header("Location:buy_ticket.php");
                     echo "<div class='alert alert-success'> Registration Successfully</div>";
                 }
             } else {
